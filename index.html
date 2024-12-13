@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 id="title">Home</h1>
+  </header>
+
+  <div class="button-container">
+    <a href="index.html" class="nav-box">Home</a>
+    <a href="about.html" class="nav-box">About</a>
+    <a href="contact.html" class="nav-box">Contact</a>
+    <a href="gallery.html" class="nav-box">Gallery</a>
+    <a href="family.html" class="nav-box">Family</a>
+  </div>
+
+  <div class="section">
+    <div class="text-box" id="typing-text">
+      <!-- Text will be typed here -->
+    </div>
+  </div>
+
+  <script>
+    // Text to be typed out
+    const text = "                         Hi I`m Kenneth A student of CNSC                           Step into the life of a student who's not just about books and deadlines, but also about chasing sunsets, conquering new challenges, and thriving on that adrenaline rush. Whether I’m scaling mountains, diving into the unknown, or simply navigating the exciting journey of learning and self-discovery, every moment counts, and I’m here to share them with you!";
+    
+    // Function to type text letter by letter and scroll it as it overflows
+    function typeText(elementId, text, speed) {
+      let i = 0;
+      const element = document.getElementById(elementId);
+      const typingInterval = setInterval(function() {
+        element.innerHTML += text[i];
+        i++;
+
+        // Scroll down when the text reaches the bottom of the text box
+        if (element.scrollHeight > element.clientHeight) {
+          element.scrollTop = element.scrollHeight;
+        }
+
+        if (i === text.length) {
+          clearInterval(typingInterval);
+        }
+      }, speed);
+    }
+
+    // Trigger the typing effect after the page loads
+    window.onload = function() {
+      typeText("typing-text", text, 40); // Speed of typing is 100ms per character
+    };
+  </script>
+</body>
+</html>
